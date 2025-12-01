@@ -1,4 +1,7 @@
 //Write your last name and your partner's name here
+// Hidalgo
+// Kuang
+// Ngo
 
 #include <iostream>
 #include "die.h"

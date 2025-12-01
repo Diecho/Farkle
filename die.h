@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <vector>
 #include <cassert>
 #include <cstdlib>
@@ -7,7 +8,7 @@ using std::cout;
 using std::endl;
 
 class Die {
-	const unsigned int SIDES;
+	unsigned int SIDES; // I deleted the const here -- diego
 	vector<double> weight;
 	unsigned int last_roll;
 	public:
