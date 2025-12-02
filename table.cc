@@ -37,3 +37,20 @@ int Table::get_turn_score() const {
 void Table::reset() {
 	//TODO
 }
+
+int Table::get_held_count() const {
+    int count = 0;
+    for(bool b : held_dice) {
+        if(b) {
+            count++;
+        }
+    }
+    return count;
+}
+
+void Table::reset_held_dice() {
+    for(unsigned int i = 0; i < held_dice.size(); i++) {
+        held_dice[i] = false;
+    }
+}
+

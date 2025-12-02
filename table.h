@@ -23,9 +23,9 @@ class Table {
 		int turn_score; // this should add to the total score if player wins the turn
 
 	public:
-		Table();
+		Table(); // this should set all held_dice to false
 
-		void set_dice(std::vector<Die>* player_dice);
+		void set_dice(std::vector<Die>* player_dice); 
 
 		void roll_dices(); // do a functions that rolls all the remaing dice 
 
@@ -35,7 +35,14 @@ class Table {
 
 		void perform_move(const ScoringOption& option); // this is when depending on the user input we change the held_dice bool vector index from [0-5]
 
-		const std::vector<Die>& get_dice() const; //we do need this 
+		const std::vector<Die>& get_dice() const; //we do need this used in scoreboard 
         int get_turn_score() const; // used at the end when user ends turn
-        void reset(); // reset table, turn_score set to 0, vector bool all positive, etc
+        void reset(); // reset table, turn_score set to 0, vector bool all false, etc
+
+
+
+
+		int get_held_count() const;// gets how many true do you have in held_dice
+        void reset_held_dice(); //set them all to false 
+
 };
