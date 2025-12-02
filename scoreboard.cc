@@ -26,11 +26,15 @@ void Scoreboard::print_turn(const Player& current_player, const Table& table) {
 
 	const vector<Die>& src = table.get_dice(); 
 
+	const vector<bool>& held = table.get_held(); 
+
 	vector<Die> dice; 
 	dice.assign(src.begin(), src.end()); 
 
 	cout <<"Dice:" <<endl; 
 	for (size_t i = 0; i < dice.size(); ++i) { 
+
+		if(held[i]) continue;
 		cout << " Die " << i << ": " << dice[i].get_roll() << endl;
 	}
 	/*const vector<Die>& dice = table.get_dice(); 
