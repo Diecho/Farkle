@@ -127,19 +127,23 @@ vector<ScoringOption> Table::possible_moves_calculation() {
 	}
 	vector<bool> ddd(6,false);
 	for (int i = 0; i < 6; i++) {
-            if(!(held_dice[i])) {
-				
+		if(!(held_dice[i])) {
+			int val = (*current_dice)[i].get_roll();
+			if(val == 1 || val == 5){
+				ddd[val-1] = true;
 			}
+		}
 	}
-	if (true) {
+	if (ddd[0]) {
 		count = 0;
 		ScoringOption al;
 		vector<bool> asd(6, false);
 		for (int i = 0; i < 6; i++) {
 			if(!(held_dice[i]) && count < 3) {
 				int val = (*current_dice)[i].get_roll();
-				if (val == 1 && !(asd[val-1])) {
-					asd[val-1] = true;
+				if (val == 1 && !(asd[i])) {
+					asd[i] = true;
+					count++;
 				}
 			}
 		}
@@ -148,19 +152,20 @@ vector<ScoringOption> Table::possible_moves_calculation() {
 		al.die_indices = asd;
 		sov.push_back(al);
 	}
-	if (true) {
+	if (ddd[4]) {
 		count = 0;
 		ScoringOption al;
 		vector<bool> asd(6, false);
 		for (int i = 0; i < 6; i++) {
 			if(!(held_dice[i]) && count < 3) {
 				int val = (*current_dice)[i].get_roll();
-				if (val == 5 && !(asd[val-1])) {
-					asd[val-1] = true;
+				if (val == 5 && !(asd[i])) {
+					asd[i] = true;
+					count++;
 				}
 			}
 		}
-		al.description = "You got " + std::to_string(count) + "s 1";
+		al.description = "You got " + std::to_string(count) + "s 5";
 		al.score = 50 * count;
 		al.die_indices = asd;
 		sov.push_back(al);
@@ -209,3 +214,6 @@ void Table::reset_held_dice() {
     }
 }
 
+const vector<bool>& Table::get_held() const {
+    return held_dice; 
+}

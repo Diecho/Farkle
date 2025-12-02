@@ -42,8 +42,8 @@ class Table {
 
 
 
-
 		int get_held_count() const;// gets how many true do you have in held_dice
         void reset_held_dice(); //set them all to false 
 
+		const std::vector<bool>& get_held() const; 
 };
