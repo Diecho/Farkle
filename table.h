@@ -35,7 +35,7 @@ class Table {
 
 		void perform_move(const ScoringOption& option); // this is when depending on the user input we change the held_dice bool vector index from [0-5]
 
-		const std::vector<Die>& get_dice() const; // idk the use for this. maybe we dont need it 
+		const std::vector<Die>& get_dice() const; //we do need this 
         int get_turn_score() const; // used at the end when user ends turn
         void reset(); // reset table, turn_score set to 0, vector bool all positive, etc
 };
