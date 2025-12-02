@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <string>
 #include "die.h"
 #include "player.h"
 
@@ -9,7 +10,7 @@
 struct ScoringOption {
     std::string description;
     int score;
-    std::vector<int> die_indices; 
+    std::vector<bool> die_indices;
 }; // this is going to be what the calculations of possible plays is going to return so then we can print all the options to the player
 
 
