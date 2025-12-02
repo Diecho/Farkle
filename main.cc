@@ -119,8 +119,9 @@ int main() {
 
 	while (game_running){
 
-		table.reset(); //important resets vector of true values
 		table.set_dice(&current_player->get_dice());
+		table.reset(); //important resets vector of true values
+
 		bool turn_active = true;
 			while(turn_active){
 				view.clear_screen(); //this should work as a clear
